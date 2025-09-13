@@ -1,0 +1,189 @@
+.wrapper {
+    position: relative;
+    width: 420px;
+    height: 450px;
+    background: transparent;
+    border-radius: 10px;
+    color: black;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    transition: height .2s ease;
+    margin-top: 50px;
+}
+
+.welcome-heading {
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: black;
+
+}
+
+.welcome-heading {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    font-size: 3rem;
+    font-weight: bold;
+
+    /* Gradient text effect */
+    background: linear-gradient(45deg, #000000, #ffffff, #000000, #ffffff);
+    background-size: 400% 400%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+
+    /* Sparkle animation */
+    animation: gradientShift 3s ease-in-out infinite,
+        sparkle 2s ease-in-out infinite;
+
+    /* Add text shadow for more pop */
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
+}
+
+@keyframes gradientShift {
+
+    0%,
+    100% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+@keyframes sparkle {
+
+    0%,
+    100% {
+        filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5)) brightness(1);
+    }
+
+    50% {
+        filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.8)) brightness(1.2);
+    }
+}
+
+.wrapper.active {
+    height: 500px;
+}
+
+
+.wrapper .form-box {
+    width: 100%;
+    padding: 40px;
+}
+
+.wrapper.active .form-box.login {
+    transition: none;
+    translate: -400px;
+}
+
+.wrapper .form-box.Signup {
+    position: absolute;
+    translate: 400px;
+}
+
+.wrapper.active .form-box.Signup {
+    transition: translate .18s ease;
+    translate: 0;
+}
+
+
+form h1 {
+    font-size: 36px;
+    text-align: center;
+}
+
+form .input-box {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin: 30px 0;
+
+}
+
+.input-box input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    border: 2px solid rgba(255, 255, 255, .1);
+    border-radius: 40px;
+    font-size: 16px;
+    color: black;
+    padding: 20px 45px 20px 20px;
+}
+
+.input-box input::placeholder {
+    color: #fff;
+}
+
+.input-box .icon {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    translate: 0 50%;
+    font-size: 16px;
+}
+
+form .remember-forgot {
+    display: flex;
+    justify-content: space-between;
+    font-size: 16px;
+    /* margin: top right bottom left; */
+    margin: -15px 0 15px;
+    color: #fff;
+}
+
+.remember-forgot label input {
+    accent-color: #ffff;
+    margin: 10px 0 0 4px;
+}
+
+.remember-forgot a {
+    color: #fff;
+    text-decoration: none;
+    margin: 10px 0px 0px 4px;
+}
+
+.remember-forgot a:hover {
+    text-decoration: underline;
+}
+
+form button {
+    width: 100%;
+    height: 45px;
+    background: #ffff;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+    cursor: pointer;
+    font-size: 16px;
+    color: #333;
+    font-weight: 800;
+}
+
+form .Signup-link {
+    font-size: 16px;
+    text-align: center;
+    margin: 20px 0 15px;
+    color: #fff;
+
+}
+
+.Signup-link p a {
+    color: #fff;
+    /* text-decoration: none; */
+    font-weight: 600;
+}
+
+.Signup-link p a:hover {
+    text-decoration: underline;
+
+}
