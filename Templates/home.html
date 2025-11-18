@@ -1,0 +1,73 @@
+{% extends 'layout.html' %} {% block content %}
+<div class="max-w-6xl mx-auto">
+  <h1 class="text-4xl font-bold text-teal-500">RushCheck</h1>
+  <p class="mt-2 text-gray-600">
+    Monitor public spaces and quickly check congestion levels.
+  </p>
+
+  <!-- Image gallery -->
+  <div class="mt-8 grid grid-cols-4 gap-4">
+    <img
+      src="/static/images/library.jpg"
+      class="rounded-lg h-40 w-full object-cover"
+    />
+    <img
+      src="/static/images/library.jpg"
+      class="rounded-lg h-40 w-full object-cover"
+    />
+    <img
+      src="/static/images/library.jpg"
+      class="rounded-lg h-40 w-full object-cover"
+    />
+    <img
+      src="/static/images/library.jpg"
+      class="rounded-lg h-40 w-full object-cover"
+    />
+  </div>
+
+  <!-- About section -->
+  <div class="mt-12 bg-white rounded-lg p-6 shadow">
+    <div class="grid grid-cols-2 gap-6">
+      <div>
+        <h3 class="text-2xl font-semibold">About us</h3>
+        <p class="mt-2 text-gray-600">
+          RushCheck is a simple app for detecting how busy public spaces are
+          using pre-recorded video and person detection.
+        </p>
+      </div>
+      <div class="flex flex-col gap-4">
+        <button class="bg-black text-white py-3 rounded">Public Spaces</button>
+        <button class="bg-black text-white py-3 rounded">How it works?</button>
+        <button class="bg-black text-white py-3 rounded">Security</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Team -->
+  <div class="mt-12">
+    <h3 class="text-2xl font-semibold text-center">Our Team</h3>
+    <div class="mt-6 grid grid-cols-4 gap-6">
+      <div class="text-center">
+        <div class="mx-auto h-24 w-24 rounded-full bg-teal-400"></div>
+        <h4 class="mt-2 font-semibold">Dev 1</h4>
+        <p class="text-sm text-gray-500">Lead</p>
+      </div>
+      <div class="text-center">
+        <div class="mx-auto h-24 w-24 rounded-full bg-teal-400"></div>
+        <h4 class="mt-2 font-semibold">Dev 2</h4>
+        <p class="text-sm text-gray-500">ML</p>
+      </div>
+      <div class="text-center">
+        <div class="mx-auto h-24 w-24 rounded-full bg-teal-400"></div>
+        <h4 class="mt-2 font-semibold">Dev 3</h4>
+        <p class="text-sm text-gray-500">Frontend</p>
+      </div>
+      <div class="text-center">
+        <div class="mx-auto h-24 w-24 rounded-full bg-teal-400"></div>
+        <h4 class="mt-2 font-semibold">Dev 4</h4>
+        <p class="text-sm text-gray-500">UX</p>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

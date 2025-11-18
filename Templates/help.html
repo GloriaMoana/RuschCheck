@@ -1,0 +1,39 @@
+{% extends 'layout.html' %} {% block content %}
+<div class="max-w-6xl mx-auto">
+  <h2 class="text-2xl font-bold">Get Help</h2>
+  <p class="mt-2 text-gray-600">
+    Search FAQs or report bugs to the development team.
+  </p>
+
+  <div class="mt-6 grid grid-cols-3 gap-6">
+    <div class="col-span-1 bg-white rounded p-4">
+      <h4 class="font-semibold">Categories</h4>
+      <ul class="mt-4 text-gray-600 space-y-2">
+        <li>General</li>
+        <li>Companies</li>
+        <li>Members</li>
+        <li>Society</li>
+      </ul>
+    </div>
+    <div class="col-span-2 bg-white rounded p-4">
+      <h4 class="font-semibold">Frequently Asked Questions</h4>
+      <div class="mt-4 space-y-3">
+        <details class="p-3 border rounded">
+          <summary>What is RushCheck?</summary>
+          <p class="mt-2 text-gray-600">
+            RushCheck analyzes pre-recorded video and returns simple congestion
+            metrics.
+          </p>
+        </details>
+        <details class="p-3 border rounded">
+          <summary>How do I add videos?</summary>
+          <p class="mt-2 text-gray-600">
+            Add video files under the `videos/` folder and update `LOCATIONS` in
+            app.py.
+          </p>
+        </details>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

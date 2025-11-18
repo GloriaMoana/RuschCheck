@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>RushCheck</title>
+    <!-- Tailwind CDN so that we have a general layout for each of the pages with the side bar -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/custom.css') }}"
+    />
+  </head>
+  <body class="bg-gray-100">
+    <div class="flex min-h-screen">
+      <!-- Sidebar that will be in all of hte pages-->
+      <aside class="w-64 bg-white border-r">
+        <div class="p-4 border-b">
+          <div class="flex items-center gap-2">
+            <div
+              class="h-10 w-10 bg-teal-400 rounded flex items-center justify-center font-bold text-white"
+            >
+              R
+            </div>
+            <div>
+              <div class="font-bold">RushCheck</div>
+              <div class="text-xs text-gray-500">Monitoring Spaces</div>
+            </div>
+          </div>
+        </div>
+        <nav class="p-4">
+          <ul class="space-y-2 text-gray-700">
+            <li>
+              <a
+                href="/"
+                class="flex items-center gap-3 p-2 rounded hover:bg-gray-50"
+                ><span>🏠</span><span>Home</span></a
+              >
+            </li>
+            <li>
+              <a
+                href="/spaces"
+                class="flex items-center gap-3 p-2 rounded hover:bg-gray-50"
+                ><span>📍</span><span>Spaces</span></a
+              >
+            </li>
+            <li>
+              <a
+                href="/help"
+                class="flex items-center gap-3 p-2 rounded hover:bg-gray-50"
+                ><span>❓</span><span>Get Help</span></a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="flex items-center gap-3 p-2 rounded hover:bg-gray-50"
+                ><span>⚙️</span><span>Settings</span></a
+              >
+            </li>
+          </ul>
+        </nav>
+      </aside>
+
+      <!-- Main content: depending on what the user chooses which is mostly going to be the spaces page-->
+      <div class="flex-1 p-8">{% block content %}{% endblock %}</div>
+    </div>
+  </body>
+</html>

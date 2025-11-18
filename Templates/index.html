@@ -1,0 +1,49 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>People Congestion — Locations
+      
+    </title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  </head>
+  <body>
+    <div class="page">
+      <header>
+        <h1>Locations</h1>
+        <p>Click "Check" to analyze congestion for a location. Results appear in a popup.</p>
+      </header>
+
+      <main class="grid">
+        {% for key, loc in locations.items() %}
+        <div class="card" data-loc-id="{{ key }}">
+          <img src="/{{ loc.image }}" alt="{{ loc.name }}" class="thumb">
+          <div class="card-body">
+            <h3>{{ loc.name }}</h3>
+            <div class="indicator" id="indicator-{{ key }}" title="Not checked"></div>
+            <button class="check-btn" data-loc="{{ key }}">Check</button>
+          </div>
+        </div>
+        {% endfor %}
+      </main>
+
+      <!-- Modal -->
+      <div id="modal" class="modal hidden">
+        <div class="modal-content">
+          <span id="modalClose" class="modal-close">&times;</span>
+          <h2 id="modalTitle">Location</h2>
+          <p><strong>Congestion Level:</strong> <span id="modalLevel"></span></p>
+          <p><strong>Average People:</strong> <span id="modalPeople"></span></p>
+          <p><strong>Capacity:</strong> <span id="modalCapacity"></span></p>
+          <p><strong>Percent Full:</strong> <span id="modalPercent"></span>%</p>
+          <button id="directionsBtn">Get Directions</button>
+        </div>
+      </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+  </body>
+</html>
+
+
