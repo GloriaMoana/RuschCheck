@@ -1,0 +1,95 @@
+{% extends 'layout.html' %} {% block content %}
+<div class="max-w-6xl mx-auto">
+  <div class="flex justify-between items-center mb-6">
+    <h2 class="text-2xl font-bold">Admin Dashboard</h2>
+    <div>
+      <span class="text-sm mr-4">User: {{ current_user.id }}</span>
+      <a href="{{ url_for('admin_logout') }}" class="text-sm text-red-600"
+        >Logout</a
+      >
+    </div>
+  </div>
+
+  <div class="grid grid-cols-2 gap-6">
+    <!-- Add/Edit Form -->
+    <div class="bg-white p-4 rounded shadow">
+      <h3 class="font-semibold mb-3">Add / Edit Location</h3>
+
+      <form
+        action="{{ url_for('admin_locations_add') }}"
+        method="post"
+        enctype="multipart/form-data"
+      >
+        <label class="block text-sm">ID (slug)</label>
+        <input name="id" class="w-full border p-2 rounded mb-2" required />
+
+        <label class="block text-sm">Name</label>
+        <input name="name" class="w-full border p-2 rounded mb-2" required />
+
+        <label class="block text-sm">Capacity</label>
+        <input
+          name="capacity"
+          type="number"
+          class="w-full border p-2 rounded mb-2"
+        />
+
+        <label class="block text-sm">Address</label>
+        <input name="address" class="w-full border p-2 rounded mb-2" />
+
+        <label class="block text-sm">Image Upload</label>
+        <input name="image" type="file" accept="image/*" class="w-full mb-2" />
+
+        <label class="block text-sm">Video Upload</label>
+        <input name="video" type="file" accept="video/*" class="w-full mb-4" />
+
+        <button class="bg-teal-600 text-white px-4 py-2 rounded">Save</button>
+      </form>
+    </div>
+
+    <!-- Existing Locations -->
+    <div class="bg-white p-4 rounded shadow">
+      <h3 class="font-semibold mb-3">Existing Locations</h3>
+
+      <div class="space-y-2">
+        {% for loc in locations %}
+        <div class="flex justify-between border-b py-2">
+          <div>
+            <div class="font-semibold">{{ loc.name }}</div>
+            <div class="text-xs text-gray-500">ID: {{ loc.id }}</div>
+            <div class="text-xs text-gray-500">
+              <strong>Image:</strong> {{ loc.image }}
+            </div>
+            <div class="text-xs text-gray-500">
+              <strong>Video:</strong> {{ loc.video }}
+            </div>
+          </div>
+
+          <form
+            action="{{ url_for('admin_locations_delete') }}"
+            method="post"
+            onsubmit="return confirm('Delete?')"
+          >
+            <input type="hidden" name="id" value="{{ loc.id }}" />
+            <button class="text-red-600">Delete</button>
+          </form>
+        </div>
+        {% endfor %}
+      </div>
+
+      <hr class="my-4" />
+
+      <h3 class="font-semibold mb-2">Recent Checks</h3>
+
+      <div class="space-y-2 text-sm">
+        {% for s in statuses %}
+        <div class="border-b py-1">
+          <strong>{{ s.location_name }}</strong> — {{ s.level }} ({{
+          s.average_people }} ppl)
+          <div class="text-xs text-gray-500">{{ s.updated_at }}</div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
