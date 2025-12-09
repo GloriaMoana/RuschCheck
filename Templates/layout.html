@@ -4,17 +4,30 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>RushCheck</title>
-    <!-- Tailwind CDN so that we have a general layout for each of the pages with the side bar -->
+
+    <!-- Tailwind -->
     <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Modern UI CSS -->
     <link
       rel="stylesheet"
       href="{{ url_for('static', filename='css/custom.css') }}"
     />
   </head>
-  <body class="bg-gray-100">
+
+  <!-- ADMIN SIDE TAB -->
+  <a
+    href="/admin"
+    class="fixed right-0 top-1/2 -translate-y-1/2 bg-teal-600 text-white px-4 py-2 rounded-l-lg shadow-lg hover:bg-teal-700 transition z-50"
+  >
+    Admin
+  </a>
+
+  <!-- REMOVE bg-gray-100 so your gradient applies -->
+  <body>
     <div class="flex min-h-screen">
-      <!-- Sidebar that will be in all of hte pages-->
-      <aside class="w-64 bg-white border-r">
+      <!-- Sidebar -->
+      <aside class="w-64 bg-white border-r relative z-20">
         <div class="p-4 border-b">
           <div class="flex items-center gap-2">
             <div
@@ -28,6 +41,7 @@
             </div>
           </div>
         </div>
+
         <nav class="p-4">
           <ul class="space-y-2 text-gray-700">
             <li>
@@ -62,8 +76,10 @@
         </nav>
       </aside>
 
-      <!-- Main content: depending on what the user chooses which is mostly going to be the spaces page-->
-      <div class="flex-1 p-8">{% block content %}{% endblock %}</div>
+      <!-- MAIN CONTENT with .page wrapper so your modern CSS activates -->
+      <div class="flex-1">
+        <div class="page">{% block content %}{% endblock %}</div>
+      </div>
     </div>
   </body>
 </html>

@@ -7,22 +7,13 @@
 
   <!-- Image gallery -->
   <div class="mt-8 grid grid-cols-4 gap-4">
+    {% for i in range(4) %}
     <img
-      src="/static/images/library.jpg"
+      src="{{ url_for('static', filename='uploads/images/library.jpg') }}"
       class="rounded-lg h-40 w-full object-cover"
+      onerror="this.src='{{ url_for('static', filename='uploads/images/default.jpg') }}'"
     />
-    <img
-      src="/static/images/library.jpg"
-      class="rounded-lg h-40 w-full object-cover"
-    />
-    <img
-      src="/static/images/library.jpg"
-      class="rounded-lg h-40 w-full object-cover"
-    />
-    <img
-      src="/static/images/library.jpg"
-      class="rounded-lg h-40 w-full object-cover"
-    />
+    {% endfor %}
   </div>
 
   <!-- About section -->
@@ -32,12 +23,17 @@
         <h3 class="text-2xl font-semibold">About us</h3>
         <p class="mt-2 text-gray-600">
           RushCheck is a simple app for detecting how busy public spaces are
-          using pre-recorded video and person detection.
+          using AI-powered video analysis.
         </p>
       </div>
+
       <div class="flex flex-col gap-4">
-        <button class="bg-black text-white py-3 rounded">Public Spaces</button>
-        <button class="bg-black text-white py-3 rounded">How it works?</button>
+        <a href="/spaces" class="bg-black text-white py-3 rounded text-center"
+          >Public Spaces</a
+        >
+        <a href="/help" class="bg-black text-white py-3 rounded text-center"
+          >How it works?</a
+        >
         <button class="bg-black text-white py-3 rounded">Security</button>
       </div>
     </div>

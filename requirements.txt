@@ -1,7 +1,8 @@
-flask
-ultralytics
-opencv-python
-numpy
-werkzeug
-pillow
-moviepy
+flask>=2.3
+flask-login>=0.6
+werkzeug>=2.3
+ultralytics>=8.0
+opencv-python>=4.7
+numpy>=1.24
+pillow>=10
+moviepy>=2.0
